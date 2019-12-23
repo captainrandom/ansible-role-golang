@@ -83,7 +83,7 @@
   failed_when: check_gopaths.rc != 1 and check_gopaths.rc != 0
 
 - name: setup zsh go paths
-  command: echo "source /etc/profile.d/golang.sh" >> /etc/zsh/zshenv
+  command: sudo sh -c "echo 'source /etc/profile.d/golang.sh' >> /etc/zsh/zshenv"
   become: true
   when: check_gopaths.rc == 1
 
