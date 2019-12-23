@@ -78,8 +78,9 @@
   command: grep  "source /etc/profile.d/golang.sh" /etc/zsh/zshenv
   register: check_gopaths
   check_mode: no
-  ignore_errors: yes
+  # ignore_errors: yes
   changed_when: no
+  failed_when: check_gopaths.rc != 1 and check_gopaths.rc != 0
 
 - name: setup zsh go paths
   command: echo "source /etc/profile.d/golang.sh" >> /etc/zsh/zshenv
