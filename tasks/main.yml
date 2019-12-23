@@ -84,7 +84,7 @@
 - name: setup zsh go paths
   command: echo "source /etc/profile.d/golang.sh" >> /etc/zsh/zshenv
   become: true
-  when: check_gopaths.rc == 0
+  when: check_gopaths.rc == 1
 
 - name: create gopath
   file:
